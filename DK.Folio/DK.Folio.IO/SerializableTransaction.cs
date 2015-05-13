@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DK.Folio.IO
 {
-    public class Class1
+    /// <summary>
+    /// A flat transaction instance that can be serialized and deserailized
+    /// </summary>
+    public class SerializableTransaction
     {
     }
 }
