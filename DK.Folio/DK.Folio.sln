@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.Folio.WebTests", "DK.Fol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.Folio.ModelsTests", "DK.Folio.ModelsTests\DK.Folio.ModelsTests.csproj", "{68C4B137-3A27-4FC7-AEFB-D98D916EBF88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.Folio.IOTests", "DK.Folio.IOTests\DK.Folio.IOTests.csproj", "{FC705FAD-C31D-46A9-845D-C23A88EBDEF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{68C4B137-3A27-4FC7-AEFB-D98D916EBF88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68C4B137-3A27-4FC7-AEFB-D98D916EBF88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68C4B137-3A27-4FC7-AEFB-D98D916EBF88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC705FAD-C31D-46A9-845D-C23A88EBDEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC705FAD-C31D-46A9-845D-C23A88EBDEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC705FAD-C31D-46A9-845D-C23A88EBDEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC705FAD-C31D-46A9-845D-C23A88EBDEF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

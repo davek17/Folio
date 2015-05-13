@@ -13,12 +13,11 @@ namespace DK.Folio.Models.Tests
         [TestMethod()]
         public void GetCreditTransactionTest()
         {
-            Transaction t = TransactionFactory.GetTransaction(1, CashTransactionType.Deposit, 10.00m);
+            Transaction t = TransactionFactory.GetTransaction(Guid.NewGuid(), CashTransactionType.Deposit, 10.00m);
 
             Assert.IsInstanceOfType(t, typeof(CashTransaction));
             Assert.IsTrue(t.Value == 10.00m);
             Assert.IsTrue(t.EntryType == EntryType.Credit);
-            Assert.AreEqual(1, t.AccountID);
 
             CashTransaction c = (CashTransaction)t;
 
@@ -30,12 +29,11 @@ namespace DK.Folio.Models.Tests
         [TestMethod()]
         public void GetDebitTransactionTest()
         {
-            Transaction t = TransactionFactory.GetTransaction(2, CashTransactionType.Withdrawal, 12.00m);
+            Transaction t = TransactionFactory.GetTransaction(Guid.NewGuid(), CashTransactionType.Withdrawal, 12.00m);
 
             Assert.IsInstanceOfType(t, typeof(CashTransaction));
             Assert.IsTrue(t.Value == 12.00m);
             Assert.IsTrue(t.EntryType == EntryType.Debit);
-            Assert.AreEqual(2, t.AccountID);
 
             CashTransaction c = (CashTransaction)t;
 

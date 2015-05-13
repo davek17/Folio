@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace DK.Folio.Models
 {
-    class StockTransaction : Transaction
+    public class ApplicationData
     {
-        public StockTransaction() : base(Guid.NewGuid(), EntryType.Credit, 0.0m)
-        {
-
-        }
+        public List<Account> Accounts { get; set; }
     }
 }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DK.Folio.Models
 {
+    /// <summary>
+    /// Transactions created through the factory automatically determine transaciton type.
+    /// </summary>
     public static class TransactionFactory
     {
         /// <summary>
@@ -15,7 +18,7 @@ namespace DK.Folio.Models
         /// <param name="transactionType">Cash transaction type</param>
         /// <param name="value">Transaction value</param>
         /// <returns>Cash Transaction</returns>
-        public static Transaction GetTransaction(int accountId, CashTransactionType transactionType, decimal value)
+        public static Transaction GetTransaction(Guid accountId, CashTransactionType transactionType, decimal value)
         {
             EntryType entryType;
 

@@ -11,7 +11,7 @@ namespace DK.Folio.Models
         /// <summary>
         /// Account ID
         /// </summary>
-        private int accountId;
+        private Guid accountId;
 
         /// <summary>
         /// Transaction type
@@ -26,10 +26,18 @@ namespace DK.Folio.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="Transaction"/> class.
         /// </summary>
+        public Transaction()
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Transaction"/> class.
+        /// </summary>
         /// <param name="accountId">Account Id</param>
         /// <param name="entryType">Transaction type</param>
         /// <param name="value">Transaction value</param>
-        public Transaction(int accountId, EntryType entryType, decimal value)
+        public Transaction(Guid accountId, EntryType entryType, decimal value)
         {
             this.accountId = accountId;
             this.entryType = entryType;
@@ -37,7 +45,7 @@ namespace DK.Folio.Models
         }
 
         /// <summary>
-        /// Gets the transaction type
+        /// Gets or sets the transaction type
         /// </summary>
         public EntryType EntryType
         { 
@@ -45,10 +53,15 @@ namespace DK.Folio.Models
             {
                 return this.entryType;
             }
+
+            set
+            {
+                this.entryType = value;
+            }
         }
 
         /// <summary>
-        /// Gets the transaction value
+        /// Gets or sets the transaction value
         /// </summary>
         public decimal Value
         {
@@ -56,16 +69,26 @@ namespace DK.Folio.Models
             {
                 return this.value;
             }
+
+            set
+            {
+                this.value = value;
+            }
         }
 
         /// <summary>
-        /// Gets the account ID
+        /// Gets or sets the account ID
         /// </summary>
-        public int AccountID
+        public Guid AccountID
         {
             get
             {
                 return this.accountId;
+            }
+
+            set
+            {
+                this.accountId = value;
             }
         }
     }
