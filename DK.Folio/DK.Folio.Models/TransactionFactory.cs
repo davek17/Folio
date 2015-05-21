@@ -16,9 +16,12 @@ namespace DK.Folio.Models
         /// </summary>
         /// <param name="accountId">Account ID</param>
         /// <param name="transactionType">Cash transaction type</param>
+        /// <param name="transactionDate">Transaction date</param>
         /// <param name="value">Transaction value</param>
+        /// <param name="note">Transaction note</param>
+        /// <param name="currency">Currency code [Default GBP]</param>
         /// <returns>Cash Transaction</returns>
-        public static Transaction GetTransaction(Guid accountId, CashTransactionType transactionType, decimal value)
+        public static Transaction GetTransaction(Guid accountId, CashTransactionType transactionType, DateTime transactionDate, decimal value, string note = "", Currency currency = Currency.GBP)
         {
             EntryType entryType;
 
@@ -36,7 +39,39 @@ namespace DK.Folio.Models
                     return null;
             }
 
-            return new CashTransaction(accountId, entryType, transactionType, value);
+            return new CashTransaction(accountId, entryType, transactionType, transactionDate, value, note, currency);
+        }
+    
+        /// <summary>
+        /// Create a new transaction type
+        /// </summary>
+        /// <param name="accountId">Account ID</param>
+        /// <param name="transactionType">Transaction type</param>
+        /// <param name="transactionDate">Transaction date</param>
+        /// <param name="stockCode">Stock code</param>
+        /// <param name="quantity">Stock unit quantity</param>
+        /// <param name="value">Transaction value</param>
+        /// <param name="note">Transaction notes</param>
+        /// <param name="currency">Currency</param>
+        public static Transaction GetTransaction(Guid accountId, StockTransactionType transactionType, DateTime transactionDate, string stockCode, decimal quantity, decimal value, string note = "", Currency currency = Currency.GBP)
+        {
+            EntryType entryType;
+
+            switch (transactionType)
+            {
+                case StockTransactionType.DividendReceived:
+                case StockTransactionType.Sale:
+                    entryType = EntryType.Credit;
+                    break;
+                case StockTransactionType.DividendReinvested:
+                case StockTransactionType.Purchase:
+                    entryType = EntryType.Debit;
+                    break;
+                default:
+                    return null;
+            }
+
+            return new StockTransaction(accountId, entryType, transactionType, transactionDate, stockCode, quantity, value, note, currency);
         }
     }
 }

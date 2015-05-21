@@ -13,9 +13,12 @@ namespace DK.Folio.Models
         /// </summary>
         private CashTransactionType transactionType;
 
-        public CashTransaction()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CashTransaction"/> class.
+        /// </summary>
+        /// <remarks>Private for serialisation only</remarks>
+        private CashTransaction()
         {
-
         }
 
         /// <summary>
@@ -24,8 +27,12 @@ namespace DK.Folio.Models
         /// <param name="accountId">Account ID</param>
         /// <param name="entryType">Entry type</param>
         /// <param name="transactionType">Transaction type</param>
+        /// <param name="transactionDate">Transaction date</param>
         /// <param name="value">Transaction value</param>
-        public CashTransaction(Guid accountId, EntryType entryType, CashTransactionType transactionType, decimal value) : base (accountId, entryType, value)
+        /// <param name="note">Transaction note</param>
+        /// <param name="currency">Currency code</param>
+        public CashTransaction(Guid accountId, EntryType entryType, CashTransactionType transactionType, DateTime transactionDate, decimal value, string note, Currency currency)
+            : base(accountId, entryType, transactionDate, value, note, currency)
         {
             this.transactionType = transactionType;
         }

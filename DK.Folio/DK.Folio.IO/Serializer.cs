@@ -29,12 +29,17 @@ namespace DK.Folio.IO
             // Creates an XmlElementAttribute instance to override the 
             // field that returns Book objects. The overridden field
             // returns Expanded objects instead.
-            XmlElementAttribute attr = new XmlElementAttribute();
-            attr.ElementName = "CashTransaction";
-            attr.Type = typeof(CashTransaction);
+            XmlElementAttribute cashAttr = new XmlElementAttribute();
+            cashAttr.ElementName = "CashTransaction";
+            cashAttr.Type = typeof(CashTransaction);
+
+            XmlElementAttribute stockAttr = new XmlElementAttribute();
+            stockAttr.ElementName = "StockTransaction";
+            stockAttr.Type = typeof(StockTransaction);            
 
             // Adds the element to the collection of elements.
-            attrs.XmlElements.Add(attr);
+            attrs.XmlElements.Add(cashAttr);
+            attrs.XmlElements.Add(stockAttr);
 
             // Creates the XmlAttributeOverrides instance.
             XmlAttributeOverrides attrOverrides = new XmlAttributeOverrides();
@@ -44,7 +49,7 @@ namespace DK.Folio.IO
             // with, to the XmlAttributeOverrides.
             attrOverrides.Add(typeof(Account), "Transactions", attrs);
 
-            Type[] types = new Type[]{ typeof(Transaction), typeof(CashTransaction) };
+            Type[] types = new Type[]{ typeof(Transaction), typeof(CashTransaction), typeof(StockTransaction) };
 
             // Creates the XmlSerializer using the XmlAttributeOverrides.
             XmlSerializer s = new XmlSerializer(typeof(ApplicationData), attrOverrides, types, null, null);            
@@ -57,9 +62,44 @@ namespace DK.Folio.IO
             writer.Close();
         }
 
-        public static void Deserialize()
+        public static ApplicationData Deserialize(string filePath)
         {
-            
+            // Each overridden field, property, or type requires 
+            // an XmlAttributes instance.
+            XmlAttributes attrs = new XmlAttributes();
+
+            // Creates an XmlElementAttribute instance to override the 
+            // field that returns Book objects. The overridden field
+            // returns Expanded objects instead.
+            XmlElementAttribute cashAttr = new XmlElementAttribute();
+            cashAttr.ElementName = "CashTransaction";
+            cashAttr.Type = typeof(CashTransaction);
+
+            XmlElementAttribute stockAttr = new XmlElementAttribute();
+            stockAttr.ElementName = "StockTransaction";
+            stockAttr.Type = typeof(StockTransaction);
+
+            // Adds the element to the collection of elements.
+            attrs.XmlElements.Add(cashAttr);
+            attrs.XmlElements.Add(stockAttr);
+
+            // Creates the XmlAttributeOverrides instance.
+            XmlAttributeOverrides attrOverrides = new XmlAttributeOverrides();
+
+            // Adds the type of the class that contains the overridden 
+            // member, as well as the XmlAttributes instance to override it 
+            // with, to the XmlAttributeOverrides.
+            attrOverrides.Add(typeof(Account), "Transactions", attrs);
+
+            Type[] types = new Type[] { typeof(Transaction), typeof(CashTransaction), typeof(StockTransaction) };
+
+            // Creates the XmlSerializer using the XmlAttributeOverrides.
+            XmlSerializer s = new XmlSerializer(typeof(ApplicationData), attrOverrides, types, null, null);  
+
+            FileStream fs = new FileStream(filePath, FileMode.Open);
+            ApplicationData data = (ApplicationData)s.Deserialize(fs);
+
+            return data;
         }
 
     }

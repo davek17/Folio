@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace DK.Folio.Models
 {
-    /// <summary>
-    /// Root applicaiton data object
-    /// </summary>
-    public class ApplicationData
+    public enum Currency
     {
         /// <summary>
-        /// Gets or sets the list of accounts
+        /// British Pound Sterling
         /// </summary>
-        public List<Account> Accounts { get; set; }
+        GBP
     }
 }
