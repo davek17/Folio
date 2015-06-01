@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DK.Folio.Models
 {
     /// <summary>
-    /// Transactions created through the factory automatically determine transaciton type.
+    /// Transactions created through the factory automatically determine transaction type.
     /// </summary>
     public static class TransactionFactory
     {
@@ -19,9 +19,9 @@ namespace DK.Folio.Models
         /// <param name="transactionDate">Transaction date</param>
         /// <param name="value">Transaction value</param>
         /// <param name="note">Transaction note</param>
-        /// <param name="currency">Currency code [Default GBP]</param>
+        /// <param name="currency">Currency code</param>
         /// <returns>Cash Transaction</returns>
-        public static Transaction GetTransaction(Guid accountId, CashTransactionType transactionType, DateTime transactionDate, decimal value, string note = "", Currency currency = Currency.GBP)
+        public static Transaction GetTransaction(Guid accountId, CashTransactionType transactionType, DateTime transactionDate, decimal value, string note, Currency currency)
         {
             EntryType entryType;
 
@@ -53,7 +53,7 @@ namespace DK.Folio.Models
         /// <param name="value">Transaction value</param>
         /// <param name="note">Transaction notes</param>
         /// <param name="currency">Currency</param>
-        public static Transaction GetTransaction(Guid accountId, StockTransactionType transactionType, DateTime transactionDate, string stockCode, decimal quantity, decimal value, string note = "", Currency currency = Currency.GBP)
+        public static Transaction GetTransaction(Guid accountId, StockTransactionType transactionType, DateTime transactionDate, string stockCode, decimal quantity, decimal value, string note,Currency currency)
         {
             EntryType entryType;
 

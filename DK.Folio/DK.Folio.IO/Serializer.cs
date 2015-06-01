@@ -20,7 +20,7 @@ namespace DK.Folio.IO
         /// </summary>
 
         ///
-        public static void Serialize(ApplicationData data, string filePath)
+        public static void Serialize(ApplicationData data)
         {
             // Each overridden field, property, or type requires 
             // an XmlAttributes instance.
@@ -55,7 +55,7 @@ namespace DK.Folio.IO
             XmlSerializer s = new XmlSerializer(typeof(ApplicationData), attrOverrides, types, null, null);            
 
             // Writing the file requires a TextWriter instance.
-            TextWriter writer = new StreamWriter(filePath);
+            TextWriter writer = new StreamWriter(data.FilePath);
 
             // Serializes the object.
             s.Serialize(writer, data);
@@ -64,6 +64,11 @@ namespace DK.Folio.IO
 
         public static ApplicationData Deserialize(string filePath)
         {
+            if(!File.Exists(filePath))
+            {
+                return new ApplicationData();
+            }
+
             // Each overridden field, property, or type requires 
             // an XmlAttributes instance.
             XmlAttributes attrs = new XmlAttributes();
