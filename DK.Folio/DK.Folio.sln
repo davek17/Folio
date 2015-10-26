@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40418.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.Folio.Models", "DK.Folio.Models\DK.Folio.Models.csproj", "{8228C7D8-BE14-4533-96DC-DD5D026A3204}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.Folio.Application", "DK.Folio.Application\DK.Folio.Application.csproj", "{C5AC34F5-E7B1-4022-8D27-4CF70DB8D666}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.Folio.ApplicationTests", "DK.Folio.ApplicationTests\DK.Folio.ApplicationTests.csproj", "{569CAD27-92A2-4DAE-BCE6-37891BD63855}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D67BC90A-FCC3-4720-8CD9-830138CF5E54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DK.Folio.UI", "DK.Folio.UI\DK.Folio.UI.csproj", "{F68E6F68-EF7E-415C-BD77-EBD06F4224D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +61,18 @@ Global
 		{569CAD27-92A2-4DAE-BCE6-37891BD63855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{569CAD27-92A2-4DAE-BCE6-37891BD63855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{569CAD27-92A2-4DAE-BCE6-37891BD63855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68E6F68-EF7E-415C-BD77-EBD06F4224D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68E6F68-EF7E-415C-BD77-EBD06F4224D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68E6F68-EF7E-415C-BD77-EBD06F4224D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68E6F68-EF7E-415C-BD77-EBD06F4224D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3593AEB5-754D-4AC4-8B4B-E5F5C7A9DC87} = {D67BC90A-FCC3-4720-8CD9-830138CF5E54}
+		{68C4B137-3A27-4FC7-AEFB-D98D916EBF88} = {D67BC90A-FCC3-4720-8CD9-830138CF5E54}
+		{FC705FAD-C31D-46A9-845D-C23A88EBDEF6} = {D67BC90A-FCC3-4720-8CD9-830138CF5E54}
+		{569CAD27-92A2-4DAE-BCE6-37891BD63855} = {D67BC90A-FCC3-4720-8CD9-830138CF5E54}
 	EndGlobalSection
 EndGlobal

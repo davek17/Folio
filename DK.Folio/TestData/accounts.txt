@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Accounts>
+    <Account>
+      <Transaction>
+        <Transaction xsi:type="StockTransaction">
+          <EntryType>Debit</EntryType>
+          <Value>10.00</Value>
+          <AccountID>5e1a7a4e-7d6a-4fed-a9ec-75ea687dae58</AccountID>
+          <Currency>GBP</Currency>
+          <TransactionDate>2015-05-21T00:00:00+01:00</TransactionDate>
+          <Note />
+          <TransactionType>Purchase</TransactionType>
+          <StockCode>LLOY.L</StockCode>
+          <Quantity>50</Quantity>
+        </Transaction>
+        <Transaction xsi:type="StockTransaction">
+          <EntryType>Credit</EntryType>
+          <Value>20.00</Value>
+          <AccountID>5e1a7a4e-7d6a-4fed-a9ec-75ea687dae58</AccountID>
+          <Currency>GBP</Currency>
+          <TransactionDate>2015-05-21T00:00:00+01:00</TransactionDate>
+          <Note>Sale</Note>
+          <TransactionType>Sale</TransactionType>
+          <StockCode>LLOY.L</StockCode>
+          <Quantity>50</Quantity>
+        </Transaction>
+      </Transaction>
+      <AccountID>5e1a7a4e-7d6a-4fed-a9ec-75ea687dae58</AccountID>
+      <Currency>GBP</Currency>
+    </Account>
+  </Accounts>
+</ApplicationData>

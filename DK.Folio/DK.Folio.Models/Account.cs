@@ -24,6 +24,16 @@ namespace DK.Folio.Models
         private decimal balance = 0.0m;
 
         /// <summary>
+        /// The account name
+        /// </summary>
+        private string accountName;
+
+        /// <summary>
+        /// The account description
+        /// </summary>
+        private string accountDescription;
+
+        /// <summary>
         /// Currency
         /// </summary>
         private Currency currency;
@@ -37,11 +47,12 @@ namespace DK.Folio.Models
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Account"/> class
+        /// Initializes a new instance of the <see cref="Account" /> class
         /// </summary>
-        /// <param name="accountDescription">Account Description</param>
+        /// <param name="accountName">Account Description</param>
         /// <param name="currency">Account Currency</param>
-        public Account(string accountDescription, Currency currency)
+        /// <param name="description">The description.</param>
+        public Account(string accountName, Currency currency, string description = "")
         {
             if(this.accountId == new Guid())
             {
@@ -126,6 +137,44 @@ namespace DK.Folio.Models
             set
             {
                 this.currency = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
+        public string AccountDescription
+        {
+            get
+            {
+                return this.accountDescription;
+            }
+
+            set
+            {
+                this.accountDescription = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the account.
+        /// </summary>
+        /// <value>
+        /// The name of the account.
+        /// </value>
+        public string AccountName
+        {
+            get
+            {
+                return this.accountName;
+            }
+
+            set
+            {
+                this.accountName = value;
             }
         }
 

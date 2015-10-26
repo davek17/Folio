@@ -40,6 +40,5 @@ namespace DK.Folio.Models
         /// Application data path
         /// </summary>
         public string FilePath { get; set; }
-
     }
 }

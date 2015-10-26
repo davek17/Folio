@@ -1,0 +1,24 @@
+﻿<Window x:Class="DK.Folio.UI.Views.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="clr-namespace:DK.Folio.UI.Models"
+        xmlns:prism="http://www.codeplex.com/prism"
+        Title="{Binding Title}" Background="White" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="{StaticResource ForegroundBrushLight}">
+        <DockPanel LastChildFill="True">
+            <ContentControl DockPanel.Dock="Top" HorizontalAlignment="Stretch" prism:RegionManager.RegionName="{x:Static models:RegionNames.MenubarRegion}"></ContentControl>
+            <ContentControl DockPanel.Dock="Top" HorizontalAlignment="Stretch" prism:RegionManager.RegionName="{x:Static models:RegionNames.ToolBarRegion}"></ContentControl>
+            <ContentControl DockPanel.Dock="Bottom" HorizontalAlignment="Stretch"  prism:RegionManager.RegionName="{x:Static models:RegionNames.StatusbarRegion}"></ContentControl>
+            <Grid  Background="{StaticResource ForegroundBrush}">
+                <ContentControl DockPanel.Dock="Bottom" HorizontalAlignment="Stretch"  prism:RegionManager.RegionName="{x:Static models:RegionNames.ShellContentRegion}"></ContentControl>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

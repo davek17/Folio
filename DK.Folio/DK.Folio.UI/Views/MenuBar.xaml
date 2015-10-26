@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="DK.Folio.UI.Views.MenuBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:models="clr-namespace:DK.Folio.UI.Models"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <models:MenuItemStyleSelector x:Key="styleSelector" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Menu x:Name="mainMenu" IsMainMenu="True" Style="{StaticResource menuBar}" ItemsSource="{Binding ParentMenuItems}" ItemContainerStyle="{StaticResource menuBarItem}" >
+            <Menu.ItemTemplate>
+                <HierarchicalDataTemplate ItemContainerStyleSelector="{StaticResource styleSelector}">
+                    <ContentPresenter Content="{Binding MenuText}" RecognizesAccessKey="True" />
+                    <HierarchicalDataTemplate.ItemsSource>
+                        <Binding Path="SubItems" />
+                    </HierarchicalDataTemplate.ItemsSource>
+                </HierarchicalDataTemplate>
+            </Menu.ItemTemplate>
+        </Menu>
+    </Grid>
+</UserControl>

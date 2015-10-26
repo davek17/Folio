@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DK.Folio.Application
 {
-    public class FolioApplication
+    public class FolioApplication : DK.Folio.Application.IFolioApplication
     {
         /// <summary>
         /// Application data object
@@ -28,10 +28,27 @@ namespace DK.Folio.Application
                 if(!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);
-                }
+                }                
                 filePath = folderPath + "\\AppData.xml";
             }
-            this.appData = Serializer.Deserialize(filePath);
+
+            if(File.Exists(filePath))
+            {
+                try
+                {
+                    this.appData = Serializer.Deserialize(filePath);
+                }
+                catch
+                {
+                    File.Move(filePath, filePath + ".error");
+                    this.appData = new ApplicationData();
+                }
+            }
+            else
+            {
+                this.appData = new ApplicationData();
+            }
+            
             
             if(this.appData.FilePath != filePath)
             {
